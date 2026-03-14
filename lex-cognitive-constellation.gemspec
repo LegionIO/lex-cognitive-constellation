@@ -11,8 +11,8 @@ Gem::Specification.new do |spec|
 
   spec.summary       = 'Cognitive constellation LEX — star-mapping for concepts'
   spec.description   = 'Maps ideas as stars with magnitude and spectral class, groups them into ' \
-                        'constellations with pattern types, and enables celestial navigation between ' \
-                        'related concepts across cognitive domains.'
+                       'constellations with pattern types, and enables celestial navigation between ' \
+                       'related concepts across cognitive domains.'
   spec.homepage      = 'https://github.com/LegionIO/lex-cognitive-constellation'
 
   spec.required_ruby_version = '>= 3.4'

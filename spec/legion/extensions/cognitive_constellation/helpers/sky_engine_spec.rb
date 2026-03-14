@@ -77,8 +77,8 @@ RSpec.describe Legion::Extensions::CognitiveConstellation::Helpers::SkyEngine do
     it 'finds connected stars in target domain' do
       s1 = engine.discover_star(name: 'A', domain: :reasoning, content: 'start')
       s2 = engine.discover_star(name: 'B', domain: :memory, content: 'target')
-      con = engine.form_constellation(name: 'Path', pattern_type: :arc,
-                                      star_ids: [s1.id, s2.id])
+      engine.form_constellation(name: 'Path', pattern_type: :arc,
+                                star_ids: [s1.id, s2.id])
       results = engine.navigate(from_star_id: s1.id, target_domain: :memory)
       expect(results.map(&:id)).to include(s2.id)
     end
@@ -99,7 +99,7 @@ RSpec.describe Legion::Extensions::CognitiveConstellation::Helpers::SkyEngine do
 
   describe '#brightest' do
     it 'returns stars sorted by magnitude' do
-      s1 = engine.discover_star(name: 'dim', domain: :logic, content: 'a', magnitude: 0.2)
+      engine.discover_star(name: 'dim', domain: :logic, content: 'a', magnitude: 0.2)
       s2 = engine.discover_star(name: 'bright', domain: :logic, content: 'b', magnitude: 0.9)
       expect(engine.brightest(limit: 1).first).to eq(s2)
     end
@@ -107,7 +107,7 @@ RSpec.describe Legion::Extensions::CognitiveConstellation::Helpers::SkyEngine do
 
   describe '#faintest' do
     it 'returns stars sorted ascending' do
-      s1 = engine.discover_star(name: 'bright', domain: :logic, content: 'a', magnitude: 0.9)
+      engine.discover_star(name: 'bright', domain: :logic, content: 'a', magnitude: 0.9)
       s2 = engine.discover_star(name: 'dim', domain: :logic, content: 'b', magnitude: 0.1)
       expect(engine.faintest(limit: 1).first).to eq(s2)
     end

@@ -28,7 +28,7 @@ module Legion
 
           def navigate(from_star_id:, target_domain:, engine: nil, **)
             eng     = resolve_engine(engine)
-            results = eng.navigate(from_star_id: from_star_id,
+            results = eng.navigate(from_star_id:  from_star_id,
                                    target_domain: target_domain)
             { success: true, stars: results.map(&:to_h), count: results.size }
           rescue ArgumentError => e
@@ -44,9 +44,9 @@ module Legion
 
           def list_constellations(engine: nil, **)
             eng = resolve_engine(engine)
-            { success: true,
+            { success:        true,
               constellations: eng.all_constellations.map(&:to_h),
-              count: eng.all_constellations.size }
+              count:          eng.all_constellations.size }
           end
 
           def sky_status(engine: nil, **)
